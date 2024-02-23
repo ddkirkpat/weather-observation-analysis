@@ -11,7 +11,7 @@ display available temperature highs and lows by date from the available historic
 ## Usage
 WARNING: To run this application, you will need to have python (3.10 preferred) installed in your environment, along with all required modules. You can install the required modules using the `requirements.txt` file. Simply, run `pip install requirements.txt`
 
-Once your python environment is fully configured for this application. Run applicaiton as shown below at the zsh or bash prompt.
+Once your python environment is fully configured for this application. Run application as shown below at the zsh or bash prompt, inputing your desired address location.
 
 ````
 $ python python high_low_temps_by_address.py
