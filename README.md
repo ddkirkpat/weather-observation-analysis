@@ -1,5 +1,5 @@
 # Weather Observation Analysis
-This tool uses the NWS (National Weather Service) API to gather weather observations for the closest station to a given location (e.g., address) and
+This tool uses the [NWS (National Weather Service) API](https://www.weather.gov/documentation/services-web-api) to gather weather observations for the closest station to a given location (e.g., address) and
 display available temperature highs and lows by date from the available historical data.
 
 ## Code Workflow
