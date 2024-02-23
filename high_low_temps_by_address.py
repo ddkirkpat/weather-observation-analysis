@@ -82,4 +82,4 @@ if __name__ == '__main__':
     latitude, longitude = get_geolocation(address)
     station_id = get_closest_station(latitude, longitude)
     results = get_high_low_temps_by_day(station_id)
-    print(tabulate(results.items(), headers=['Date','Temperatures']))
+    print(tabulate(results.items(), headers=['Date','Temperatures (C)']))
