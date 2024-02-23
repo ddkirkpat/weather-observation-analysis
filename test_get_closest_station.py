@@ -14,7 +14,5 @@ def test_valid_latitude_longitude():
 def test_invalid_latitude_longitude():
     latitude = 100
     longitude = -200
-    
     result = get_closest_station(latitude, longitude)
-    
     assert result == None
