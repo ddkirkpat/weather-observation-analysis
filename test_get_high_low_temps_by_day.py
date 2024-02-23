@@ -49,10 +49,8 @@ def test_return_high_low_temps(mocker):
         ]
     }
     requests.get.return_value = response_mock
-
     # Call the function under test
     result = get_high_low_temps_by_day('station_id')
-
     # Assert the expected high and low temperatures for each day
     expected_result = {
         datetime.strptime('2022-01-01', '%Y-%m-%d').date(): {'high': 20, 'low': 5},
@@ -67,9 +65,7 @@ def test_return_empty_dict_no_readings(mocker):
     response_mock = mocker.Mock()
     response_mock.json.return_value = {'features': []}
     requests.get.return_value = response_mock
-
     # Call the function under test
     result = get_high_low_temps_by_day('station_id')
-
     # Assert that the result is an empty dictionary
     assert result == {}
