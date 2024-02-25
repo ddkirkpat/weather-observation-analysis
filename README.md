@@ -9,14 +9,14 @@ display available temperature highs and lows by date from the available historic
 4. Display the high and low temperatures for each day from the fetched data.
 
 ## Usage
-WARNING: To run this application, you will need to have python (3.10 preferred) installed in your environment, along with all required modules. You can install the required modules using the `requirements.txt` file. Simply, run `pip install -r requirements.txt`
+WARNING: To run this application, you will need to have python (3.10 preferred) installed in your environment, along with all required modules. You can use [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) to setup your lovcal python environment. Once that setup is complete, you can install the required modules using the `requirements.txt` file. Simply, run `pip install -r requirements.txt`
 
 Once your python environment is fully configured for this application. Run application as shown below at the zsh or bash prompt, inputing your desired address location.
 
 ````
 $ python python high_low_temps_by_address.py
 Please enter a US address (ex. 1701 Wynkoop St. Denver, CO): 1701 Wynkoop St. Denver, CO
-Date        Temperatures
+Date        Temperatures (C)
 ----------  -----------------------
 2024-02-23  {'high': 4, 'low': 2}
 2024-02-22  {'high': 11, 'low': 1}
