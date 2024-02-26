@@ -67,18 +67,19 @@ def get_high_low_temps_by_day(station_id):
         # Added conditional due to "null" values in temperature data from NWS API
         if temperature != None:
             temps_by_timestamp[timestamp_string] = temperature
-    high_low_temperatures = defaultdict(lambda: {'high': float('-inf'), 'low': float('inf')})
+    high_low_temperatures_by_date = defaultdict(lambda: {'high': float('-inf'), 'low': float('inf')})
     for timestamp_string, temperature in temps_by_timestamp.items():
         timestamp = datetime.strptime(timestamp_string, '%Y-%m-%dT%H:%M:%S%z')
         date = timestamp.date()
-        if temperature > high_low_temperatures[date]['high']:
-            high_low_temperatures[date]['high'] = temperature
-        if temperature < high_low_temperatures[date]['low']:
-            high_low_temperatures[date]['low'] = temperature
-    return high_low_temperatures
+        if temperature > high_low_temperatures_by_date[date]['high']:
+            high_low_temperatures_by_date[date]['high'] = temperature
+        if temperature < high_low_temperatures_by_date[date]['low']:
+            high_low_temperatures_by_date[date]['low'] = temperature
+    return high_low_temperatures_by_date
 
 if __name__ == '__main__':
-    address = str(input('Please enter a US address (ex. 1701 Wynkoop St. Denver, CO): ').strip())
+    #address = str(input('Please enter a US address (ex. 1701 Wynkoop St. Denver, CO): ').strip())
+    address = str(input('Please enter either a US address, City, or Postal Zipcode (ex. 1701 Wynkoop St. Denver, CO): ').strip())
     latitude, longitude = get_geolocation(address)
     station_id = get_closest_station(latitude, longitude)
     results = get_high_low_temps_by_day(station_id)
