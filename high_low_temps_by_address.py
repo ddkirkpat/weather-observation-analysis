@@ -17,7 +17,7 @@ def get_geolocation(address):
             'benchmark': 'Public_AR_Current',
             'format': 'json'
         }
-        response = requests.get(url, params)
+        response = requests.get(url, params, timeout=5)
         matches = response.json()['result']['addressMatches']
         if len(matches) != 0:
             latitude = matches[0]['coordinates']['y']
@@ -31,7 +31,7 @@ def get_geolocation(address):
 def get_closest_station(latitude, longitude):
     try:
         points_url = 'https://api.weather.gov/points/' + str(latitude) + ',' + str(longitude)
-        response = requests.get(points_url)
+        response = requests.get(points_url, timeout=5)
         points_properties = response.json()['properties']
         grid_id = points_properties.get('gridId')
         grid_x = points_properties.get('gridX')
@@ -42,7 +42,7 @@ def get_closest_station(latitude, longitude):
         print(f'Other error occurred: {err}')
     try:
         gridpoints_url = 'https://api.weather.gov/gridpoints/' + str(grid_id) + '/' + str(grid_x) + ',' + str(grid_y) + '/stations'
-        response = requests.get(gridpoints_url)
+        response = requests.get(gridpoints_url, timeout=5)
         gridpoints_features = response.json()['features']
         station_id = gridpoints_features[0]['properties'].get('stationIdentifier')
     except HTTPError as http_err:
@@ -54,7 +54,7 @@ def get_closest_station(latitude, longitude):
 def get_high_low_temps_by_day(station_id):
     try:
         stations_url = 'https://api.weather.gov/stations/' + str(station_id) + '/observations'
-        response = requests.get(stations_url)
+        response = requests.get(stations_url, timeout=5)
         stations_features = response.json()['features']
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
