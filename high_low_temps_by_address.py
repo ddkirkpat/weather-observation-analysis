@@ -65,7 +65,7 @@ def get_high_low_temps_by_day(station_id):
         timestamp_string = feature['properties'].get('timestamp')
         temperature = feature['properties']['temperature'].get('value')
         # Added conditional due to "null" values in temperature data from NWS API
-        if temperature != None:
+        if temperature is not None:
             temps_by_timestamp[timestamp_string] = temperature
     high_low_temperatures_by_date = defaultdict(lambda: {'high': float('-inf'), 'low': float('inf')})
     for timestamp_string, temperature in temps_by_timestamp.items():
