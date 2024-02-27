@@ -1,6 +1,6 @@
 import pytest
 import requests
-from high_low_temps_by_address import get_geolocation
+from archive.high_low_temps_by_address import get_geolocation
 
 # Given a valid US address, it should return the latitude and longitude of the address
 def test_valid_address(mocker):

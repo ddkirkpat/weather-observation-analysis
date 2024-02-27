@@ -1,6 +1,6 @@
 import pytest
 import requests
-from high_low_temps_by_address import get_closest_station
+from archive.high_low_temps_by_address import get_closest_station
 
 # Should return the correct station ID when given valid latitude and longitude
 def test_valid_latitude_longitude():

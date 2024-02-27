@@ -1,7 +1,7 @@
 import pytest
 import requests
 from datetime import datetime
-from high_low_temps_by_address import get_high_low_temps_by_day
+from archive.high_low_temps_by_address import get_high_low_temps_by_day
 
 # Should return a dictionary with high and low temperatures for each day
 def test_return_high_low_temps(mocker):

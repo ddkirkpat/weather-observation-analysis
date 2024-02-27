@@ -30,6 +30,7 @@ def get_geolocation(address):
 def get_closest_station(latitude, longitude):
     try:
         points_url = 'https://api.weather.gov/points/' + str(latitude) + ',' + str(longitude)
+        print(points_url)
         response = requests.get(points_url, timeout=5)
         points_properties = response.json()['properties']
         grid_id = points_properties.get('gridId')
@@ -80,6 +81,7 @@ if __name__ == '__main__':
     #address = str(input('Please enter a US address (ex. 1701 Wynkoop St. Denver, CO): ').strip())
     address = str(input('Please enter either a US address, City, or Postal Zipcode (ex. 1701 Wynkoop St. Denver, CO): ').strip())
     latitude, longitude = get_geolocation(address)
+    print(latitude, longitude)
     station_id = get_closest_station(latitude, longitude)
     results = get_high_low_temps_by_day(station_id)
     print(tabulate(results.items(), headers=['Date','Temperatures (C)']))
