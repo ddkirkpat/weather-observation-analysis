@@ -60,9 +60,9 @@ def get_high_low_temps_by_day(station_id):
     except Exception as err:
         print(f'Other error occurred: {err}')
     temps_by_timestamp = {}
-    for f in enumerate(stations_features):
-        timestamp_string = stations_features[f]['properties'].get('timestamp')
-        temperature = stations_features[f]['properties']['temperature'].get('value')
+    for feature in stations_features:
+        timestamp_string = feature['properties'].get('timestamp')
+        temperature = feature['properties']['temperature'].get('value')
         # Added conditional due to "null" values in temperature data from NWS API
         if temperature is not None:
             temps_by_timestamp[timestamp_string] = temperature
