@@ -31,7 +31,6 @@ def get_closest_station(latitude, longitude):
     try:
         points_url = 'https://api.weather.gov/points/' + str(latitude) + ',' + str(longitude)
         response = requests.get(points_url, timeout=5)
-        print(response.json()['properties'])
         points_properties = response.json()['properties']
         grid_id = points_properties.get('gridId')
         grid_x = points_properties.get('gridX')
